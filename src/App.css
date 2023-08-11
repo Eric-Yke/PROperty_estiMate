@@ -32,7 +32,20 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('./images/background.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

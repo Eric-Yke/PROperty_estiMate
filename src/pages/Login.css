@@ -1,0 +1,24 @@
+.login-container {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+}
+
+.form-section {
+  flex: 1;
+  margin: 20px;
+}
+
+.form-section form input[type="text"],
+.form-section form input[type="email"],
+.form-section form input[type="password"] {
+  width: 200px;
+  display: block;
+  margin: auto;
+}

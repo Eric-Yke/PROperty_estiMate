@@ -1,0 +1,24 @@
+.navbar {
+  height: 10vh;
+  background-color: #fbf8ed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.navbar-section {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-section .logo,
+.navbar-section .location,
+.navbar-section a {
+  color: #f1713a;
+}
+
+.navbar-section a {
+  color: #f1713a;
+  text-decoration: none;
+}

@@ -1,0 +1,20 @@
+.content {
+  background-color: #fbf8ed;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content-box {
+  background-color: #ffffff;
+  width: 80%;
+  height: 80%;
+}
+
+.transparent-box {
+  background: rgba(255, 255, 255, 0.7);
+  /* Add this line */
+  /* Add other styles as needed */
+}
