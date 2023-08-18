@@ -1,5 +1,5 @@
 .content {
-  background-color: #fbf8ed;
+  background-color: #f9f9f7;
   flex-grow: 1;
   display: flex;
   justify-content: center;
@@ -16,5 +16,4 @@
 .transparent-box {
   background: rgba(255, 255, 255, 0.7);
   /* Add this line */
-  /* Add other styles as needed */
 }

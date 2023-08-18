@@ -1,16 +1,27 @@
 .navbar {
   height: 10vh;
-  background-color: #fbf8ed;
+  background-color: rgb(252, 246, 246);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
 }
 
+.logo-img {
+  height: 60px;
+  object-position: center;
+  object-fit: contain;
+  /* 保证 logo 图片不会被拉伸或压缩 */
+}
+
 .navbar-section {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  /* 垂直居中对齐所有子项目 */
+  /* gap: 1rem; */
+  gap: 0.5rem;
 }
+
 
 .navbar-section .logo,
 .navbar-section .location,
@@ -21,4 +32,27 @@
 .navbar-section a {
   color: #f1713a;
   text-decoration: none;
+  /* margin-right: 20px; */
+  /* 为每个链接增加右边距 */
+  transition: color 0.3s;
+  /* 平滑地过渡颜色变化 */
+  font-size: 18px;
+  font-weight: 500;
+
+
+  padding: 10px 20px;
+  /* 设置内边距为上下10px，左右20px */
+  border-radius: 20px;
+  background-color: transparent;
+  /* 默认背景透明 */
+  transition: background-color 0.3s;
+  /* 平滑地过渡背景颜色变化 */
+}
+
+.navbar-section a:hover {
+  color: #c25100;
+  /* 悬停时的颜色，稍微深一点 */
+
+  background-color: #f1d0b8;
+  /* 设置悬停时的背景颜色 */
 }

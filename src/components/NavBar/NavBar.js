@@ -3,11 +3,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';  // 引入 Link
 import './NavBar.css';
+import logoImage from '/Users/cei/newFolder/PROperty_estiMate/src/images/logowithouttext.PNG';  // 导入 logo 图片
+
 
 const NavBar = () => (
   <nav className="navbar">
     <div className="navbar-section">
-      <div className="logo">LOGO</div>
+      {/* <div className="logo">LOGO</div> */}
+      <img src={logoImage} alt="LOGO" className="logo-img" />
       <div className="location">Wollongong</div>
     </div>
     <div className="navbar-section">
