@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';  // 引入 Link
 import './NavBar.css';
-import logoImage from '/Users/cei/newFolder/PROperty_estiMate/src/images/logowithouttext.PNG';  // 导入 logo 图片
+import logoImage from '../../src/images/logowithouttext.PNG';  // 导入 logo 图片
 
 
 const NavBar = () => (

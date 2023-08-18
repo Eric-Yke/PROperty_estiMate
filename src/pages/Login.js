@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-import logo from '/Users/cei/newFolder/PROperty_estiMate/src/images/logo.png'; // 引入LOGO图片
+import logo from '../../src/images/logo.png'; // 引入LOGO图片
 import { useNavigate } from 'react-router-dom';  // 引入useNavigate
 
 
