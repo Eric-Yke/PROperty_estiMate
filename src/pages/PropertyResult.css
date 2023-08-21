@@ -1,5 +1,89 @@
 /* PropertyResult.css */
+body {
+  background-color: #eaeaea;
+  overflow: scroll;
+}
 
-#property-title {
+.card {
+  background-color: white;
+  width: 60%;
+  height: 600px;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 20px auto;
+}
+
+.chart-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  font-size: 20px;
+}
+
+.button:hover {
+  color: #c25100;
+}
+
+.chart-section {
+  width: 100%;
+  height: 350px;
+  padding: 20px 0;
+}
+
+.details-section {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  height: 150px;
+}
+
+.details-left {
+  width: 50%;
+}
+
+.details-right {
+  width: 50%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.3em;
+}
+
+.table th {
+  color: black;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.special-price {
+  color: #f1713a;
+  font-size: 2.0em;
+}
+
+.table th:hover {
+  color: #f1713a;
+  font-size: 1.5em;
+}
+
+.table td {
   text-align: center;
+  padding: 10px;
 }

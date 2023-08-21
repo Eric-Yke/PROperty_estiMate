@@ -1,6 +1,6 @@
 .navbar {
   height: 10vh;
-  background-color: rgb(252, 246, 246);
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +53,6 @@
   color: #c25100;
   /* 悬停时的颜色，稍微深一点 */
 
-  background-color: #f1d0b8;
+  background-color: #ffffff;
   /* 设置悬停时的背景颜色 */
 }
