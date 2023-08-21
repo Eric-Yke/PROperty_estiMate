@@ -1,7 +1,7 @@
 .footer {
   background-color: #f1713a;
   color: #ffffff;
-  height: 10vh;
+  height: 6vh;
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
@@ -10,17 +10,39 @@
   width: 100%;
 }
 
-.footer-section {
+.footer-section1 {
   display: flex;
-  gap: 1rem;
+  padding: 0 4rem;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-section2 {
+  display: flex;
+  padding: 0 5rem;
+  gap: 2.0rem;
   align-items: center;
 }
 
 .logo {
-  margin-right: 1rem;
+  margin-right: 3rem;
 }
 
 .footer a {
   color: #ffffff;
   text-decoration: none;
+}
+
+.icon {
+  font-size: 20px;
+  /* 设置图标的大小 */
+  margin-right: 20px;
+  /* 设置图标的右边距 */
+  transition: color 0.3s;
+  /* 平滑地过渡颜色变化 */
+}
+
+.footer a:hover .icon {
+  color: #c25100;
+  /* 悬停时的颜色，稍微深一点 */
 }
