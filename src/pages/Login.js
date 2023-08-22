@@ -30,7 +30,7 @@ const Login = () => {
         <div className="div2">
           <div className="div2-left">
             <img src={logo} alt="Logo" className="logo-image" />
-            <p>测试文字测试文字</p>
+            <p>Predicting tomorrow's home, today.</p>
           </div>
           <div className="div2-right">
             {isLogin ? (

@@ -4,10 +4,12 @@ import Footer from '../components/Footer/Footer';
 import LineCharts from '../components/LineCharts/LineCharts';
 import './PropertyResult.css';
 import { useRef, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 
 const PropertyResult = () => {
-
+  const location = useLocation();
+  const property = location.state ? location.state.property : null;
   const cardDivRef = useRef(null);
   const [chartWidth, setChartWidth] = useState(0);
   const [chartHeight, setChartHeight] = useState(0);
@@ -52,7 +54,14 @@ const PropertyResult = () => {
 
         <div className="details-section">
           <div className="details-left">
-            Address Details Here...
+            {property ? (
+              <>
+                <p>Area: {property.area}</p>
+                <p>Street Name: {property.street_name}</p>
+                <p>Locality: {property.property_locality}</p>
+                <p>Post Code: {property.post_code}</p>
+              </>
+            ) : "Address Details Here..."}
           </div>
           <div className="details-right">
             <br ></br>

@@ -20,28 +20,3 @@ function App() {
 }
 
 export default App;
-
-
-
-// export default App;
-// import React from 'react';
-// import NavBar from './components/NavBar/NavBar';
-// import Search from './components/Search/Search';
-// import Content from './components/Content/Content';
-// import Footer from './components/Footer/Footer';
-// import ChatBox from './components/ChatBox/ChatBox';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <NavBar />
-//       <Search />
-//       <Content />
-//       <Footer />
-//       <ChatBox />
-//     </div>
-//   );
-// }
-
-// export default App;

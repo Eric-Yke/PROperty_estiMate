@@ -9,8 +9,9 @@ import { AiOutlineUser, AiOutlineStar, AiOutlineBell, AiOutlineSwap } from "reac
 const NavBar = () => (
   <nav className="navbar">
     <div className="navbar-section">
-
-      <img src={logoImage} alt="LOGO" className="logo-img" />
+      <Link to="/">
+        <img src={logoImage} alt="LOGO" className="logo-img" />
+      </Link>
 
       <div className="location" style={{ fontSize: 20 }}>Wollongong</div>
       <AiOutlineSwap className="icon" size={22} color={'#f1713a'} />

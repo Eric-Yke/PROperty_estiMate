@@ -6,6 +6,8 @@ const Search = () => {
   const [input, setInput] = useState('');
   const navigate = useNavigate(); // 使用 useNavigate
   const inputRef = useRef(null);  // 创建一个引用
+  const [properties, setProperties] = useState([]);
+  const [selectedProperty, setSelectedProperty] = useState(null);
 
 
   useEffect(() => {
@@ -22,37 +24,66 @@ const Search = () => {
         options
       );
 
-      autocomplete.addListener('place_changed', function () {
+      // 将查询参数对象格式化为字符串的函数
+      const formatQueryParams = params => {
+        return Object.keys(params)
+          .map(key => `${key}=${encodeURIComponent(params[key])}`)
+          .join('&');
+      };
+
+      autocomplete.addListener('place_changed', async function () {
         const place = autocomplete.getPlace();
         if (!place.geometry || !place.formatted_address.includes('NSW')) {
           document.getElementById('autocomplete').value = '';  // 清除输入框的内容
           return;
         }
+        //这里返回一个谷歌封装好的地址信息
         console.log('Selected Place:', place);
 
-        // 获取邮政编码
-        const postalCodeComponent = place.address_components.find(component => component.types.includes('postal_code'));
-        if (postalCodeComponent) {
-          const postalCode = postalCodeComponent.long_name;
-          console.log('Postal Code:', postalCode);
+        // 使用Google提供的地址信息调用您的API
+        const params = {
+          house_number: getAddressComponent(place, "street_number"),
+          street_name: getAddressComponent(place, "route"),
+          property_locality: getAddressComponent(place, "locality"),
+          post_code: getAddressComponent(place, "postal_code")
+        };
+        const queryString = formatQueryParams(params);
+        const response = await fetch(`https://www.huanself.top/propertyData/fuzzySearch?${queryString}`);
+        if (response.ok) {
+          const data = await response.json();
+          console.log("api: ", data);
+          setProperties(data);
+          if (data.length === 1) {
+            setSelectedProperty(data[0]);
+          }
+        } else {
+          console.error("API returned an error:", await response.text());
         }
+
       });
 
     }
   }, []);
 
 
-
+  const getAddressComponent = (place, type) => {
+    const component = place.address_components.find(component => component.types.includes(type));
+    return component ? component.long_name : "";
+  }
 
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
   }
+
   const handleSearch = () => {
-    // 我们后面可以在这里进行搜索逻辑处理，如调用API获取数据
-    console.log('Search: ', input);
-    navigate('/propertyResult'); // 导航到 propertyResult 页面
+    if (selectedProperty) {
+      navigate('/propertyResult', { state: { property: selectedProperty } });
+    } else {
+      console.log('Please select a property from the list or no property found.', selectedProperty);
+    }
   }
+
 
   return (
     <div className="search">
@@ -70,6 +101,15 @@ const Search = () => {
         <button onClick={handleSearch} className="btn-search">Search</button>
         <button className="btn-filter">Filter</button>
       </span>
+      {properties.length > 1 && (
+        <ul className="property-list">
+          {properties.map(property => (
+            <li key={property.property_id} onClick={() => setSelectedProperty(property)}>
+              {property.house_number} {property.street_name}, {property.property_locality} {property.post_code}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
