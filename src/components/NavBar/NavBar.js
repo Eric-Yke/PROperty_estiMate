@@ -14,21 +14,21 @@ const NavBar = () => (
       </Link>
 
       <div className="location" style={{ fontSize: 20 }}>Wollongong</div>
-      <AiOutlineSwap className="icon" size={22} color={'#f1713a'} />
+      <AiOutlineSwap className="icon-my" size={22} color={'#f1713a'} />
     </div>
 
     <div className="navbar-section">
       <Link to="/notification">
-        <AiOutlineBell className="icon" size={28} />
-        <div className="icon-text">Notification</div>
+        <AiOutlineBell className="icon-my" size={28} />
+        <div className="icon-my-text">Notification</div>
       </Link>
       <Link to="/collections">
-        <AiOutlineStar className="icon" size={28} />
-        <div className="icon-text">Collections</div>
+        <AiOutlineStar className="icon-my" size={28} />
+        <div className="icon-my-text">Collections</div>
       </Link>
       <Link to="/login">
-        <AiOutlineUser className="icon" size={28} />
-        <div className="icon-text">My Account</div>
+        <AiOutlineUser className="icon-my" size={28} />
+        <div className="icon-my-text">My Account</div>
       </Link>
     </div>
   </nav>
