@@ -77,6 +77,14 @@ body {
   color: #c25100;
 }
 
+.button:hover,
+.button:focus {
+  border: none;
+  outline: none;
+}
+
+
+/* 折线图 */
 .chart-section {
   margin-top: 20px;
   width: 100%;
@@ -94,10 +102,10 @@ body {
 /* 左下div详情信息 */
 .details-left {
   width: 45%;
-  margin-top: 0px;
-  margin-left: 70px;
+  margin-top: -10px;
+  margin-left: 10%;
   margin-right: 15%;
-  font-size: 1.3em;
+  color: #4d4d4d;
 }
 
 .details-item {
@@ -146,7 +154,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 1.3em;
-  margin-left: -35px;
+  margin-left: -20%;
 }
 
 .table th {

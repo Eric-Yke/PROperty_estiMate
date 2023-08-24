@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, Area } from 'recharts';
 
 // const data = [
@@ -19,13 +20,61 @@ const data = [
   { year: 2024, history: null, predict: 450000 },
   { year: 2025, history: null, predict: 470000 }
 ];
+let rawMinY = Number.POSITIVE_INFINITY;
+let rawMaxY = Number.NEGATIVE_INFINITY;
 
-const LineCharts = ({ width, height }) => {
+data.forEach(item => {
+  if (item.history !== null) {
+    rawMinY = Math.min(rawMinY, item.history);
+    rawMaxY = Math.max(rawMaxY, item.history);
+  }
+  if (item.predict !== null) {
+    rawMinY = Math.min(rawMinY, item.predict);
+    rawMaxY = Math.max(rawMaxY, item.predict);
+  }
+});
+function roundToNearestFiftyThousand(value, direction) {
+  const divisor = 50000; // 5万
+  if (direction === 'up') {
+    return Math.ceil(value / divisor) * divisor;
+  } else if (direction === 'down') {
+    return Math.floor(value / divisor) * divisor;
+  } else {
+    return value;
+  }
+}
+
+const minY = roundToNearestFiftyThousand(rawMinY, 'down');
+const maxY = roundToNearestFiftyThousand(rawMaxY, 'up');
+
+const LineCharts = ({ width, height, data }) => {
+  let [minY, setMinY] = useState(Number.POSITIVE_INFINITY);
+  let [maxY, setMaxY] = useState(Number.NEGATIVE_INFINITY);
+
+  useEffect(() => {
+    let rawMinY = Number.POSITIVE_INFINITY;
+    let rawMaxY = Number.NEGATIVE_INFINITY;
+
+    data.forEach(item => {
+      if (item.history !== null) {
+        rawMinY = Math.min(rawMinY, item.history);
+        rawMaxY = Math.max(rawMaxY, item.history);
+      }
+      if (item.predict !== null) {
+        rawMinY = Math.min(rawMinY, item.predict);
+        rawMaxY = Math.max(rawMaxY, item.predict);
+      }
+    });
+
+    setMinY(roundToNearestFiftyThousand(rawMinY, 'down'));
+    setMaxY(roundToNearestFiftyThousand(rawMaxY, 'up'));
+  }, [data]);
+
   return (
     <LineChart width={width} height={height} data={data}>
       <CartesianGrid strokeDasharray="3 3" vertical={false} />
       <XAxis dataKey="year" tickLine={false} tick={{ fontSize: 16 }} tickMargin={15} />
-      <YAxis domain={[360000, 470000]} axisLine={false} tickLine={false} tick={{ fontSize: 14 }} />
+      <YAxis domain={[minY, maxY]} axisLine={false} tickLine={false} tick={{ fontSize: 14 }} />
       <Tooltip />
       <ReferenceLine x="2023" stroke="black" />
 

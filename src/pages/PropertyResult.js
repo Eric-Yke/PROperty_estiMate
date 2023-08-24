@@ -6,7 +6,7 @@ import Footer from '../components/Footer/Footer';
 import LineCharts from '../components/LineCharts/LineCharts';
 import './PropertyResult.css';
 
-import { useRef, useEffect, useState, useMemo } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaCheck, FaCreditCard, FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -24,6 +24,41 @@ function titleCase(str) {
     return word.charAt(0).toUpperCase() + word.slice(1);
   }).join(' ');
 }
+function formatPrediction(value) {
+  if (value >= 1000000) {
+    let millions = Math.floor(value / 1000000);
+    let hundredThousands = Math.floor((value % 1000000) / 100000);
+    let tenThousands = Math.round((value % 100000) / 10000);  // 使用 Math.round 而不是 Math.floor
+
+    if (tenThousands === 10) {
+      tenThousands = 0;
+      hundredThousands += 1;
+    }
+    if (hundredThousands === 10) {  // Handle carry over
+      hundredThousands = 0;
+      millions += 1;
+    }
+    return `${millions}.${hundredThousands}${tenThousands}M`;  // 注意这里的格式更改
+  } else {
+    let hundredThousands = Math.floor(value / 100000);
+    let tenThousands = Math.floor((value % 100000) / 10000);
+    let thousands = Math.round((value % 10000) / 1000);  // 使用 Math.round 而不是 Math.floor
+
+    if (thousands === 10) {
+      tenThousands += 1;
+      thousands = 0;
+    }
+    if (tenThousands === 10) {  // Handle carry over
+      tenThousands = 0;
+      hundredThousands += 1;
+    }
+
+    return `${hundredThousands}${tenThousands}${thousands}K`;
+  }
+}
+
+
+
 
 
 const PropertyResult = () => {
@@ -40,6 +75,9 @@ const PropertyResult = () => {
   const [chartWidth, setChartWidth] = useState(0);
   const [chartHeight, setChartHeight] = useState(0);
 
+  const midValue = property ? formatPrediction(property.prediction) : '';
+  const lowValue = property ? formatPrediction(property.prediction * 0.89) : '';
+  const highValue = property ? formatPrediction(property.prediction * 1.11) : '';
 
 
   // ---------  设置地图  ---------
@@ -64,6 +102,28 @@ const PropertyResult = () => {
             ${FaMapMarkerAlt({ color: "red", size: "40px" }).props.children[0].props.children}
         </svg>
     `;
+
+
+  // ======= 用于获取API数据并存储(用于折线图) =======
+  const [apiData, setApiData] = useState(null);
+  const [chartData, setChartData] = useState([]); // Initial chart data state
+
+  const handle7YearClick = () => {
+    if (!apiData) return;
+    const years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+    const newChartData = years.map((year, index) => {
+      return {
+        year: year,
+        history: index <= 4 ? apiData.predictions[year] : null,
+        predict: index >= 4 ? apiData.predictions[year] : null
+      };
+    });
+    console.log("Generated Chart Data:", newChartData);
+    setChartData(newChartData);
+  }
+
+
+
 
   useEffect(() => {
     // 设置折线图根据窗口大小而改变
@@ -94,12 +154,55 @@ const PropertyResult = () => {
     }
 
 
+    // ======= 获取API数据并存储(用于折线图) =======    
+    // if (property) {
+    //   const params = {
+    //     'property_id': property.property_id,
+    //   };
+    //   console.log(params)
+    //   fetch('https://www.huanself.top/predict', {
+    //     method: 'GET',
+    //     params: params
+    //   })
+    //     .then(response => response.json())
+    //     .then(data => setApiData(data))
+    //     .catch(error => console.error("Failed to fetch data:", error));
+    // }
+    if (property) {
+      const propertyId = property.property_id;
+      const apiUrl = `https://www.huanself.top/predict?property_id=${propertyId}`;
+
+      fetch(apiUrl, {
+        method: 'GET'
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("API Data:", data);  // 打印从API返回的数据
+          setApiData(data);
+        })
+        .catch(error => console.error("Failed to fetch data:", error));
+    }
+
     // 在组件卸载时移除事件监听器
     return () => {
       window.removeEventListener('resize', handleResize);
     };
 
   }, [property, formattedAddress]);
+  useEffect(() => {
+    if (apiData && chartData.length === 0) {
+      const years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+      const newChartData = years.map((year, index) => {
+        return {
+          year: year,
+          history: index <= 4 ? apiData.predictions[year] : null,
+          predict: index >= 4 ? apiData.predictions[year] : null
+        };
+      });
+      console.log("Generated Chart Data:", newChartData);
+      setChartData(newChartData);
+    }
+  }, [apiData]);
 
 
 
@@ -114,26 +217,23 @@ const PropertyResult = () => {
 
       <div className="card">
         <div className="filter-buttons">
-          <button className="button">5 year</button>
-          <button className="button">10 year</button>
-          <button className="button">suburb</button>
-          <button className="button">state</button>
+          <button className="button" onClick={handle7YearClick}>7 year</button>
+          <button className="button">14 year</button>
+          <button className="button">26 yesr</button>
+          <button className="button">Suburb</button>
+
         </div>
 
         <div className="chart-section" ref={cardDivRef}>
-          <LineCharts width={chartWidth} height={chartHeight} />
+          <LineCharts width={chartWidth} height={chartHeight} data={chartData} />
         </div>
 
         <div className="details-section">
           <div className="details-left">
             {property ? (
               <>
-                {/* <p>Area: {property.area}</p>
-                <p>Street Name: {property.street_name}</p>
-                <p>Locality: {property.property_locality}</p>
-                <p>Post Code: {property.post_code}</p> */}
 
-                <div className="details-item">
+                {/*<div className="details-item">
                   <span className="detail-key">Area</span>
                   <span className="detail-value">{property.area}</span>
                 </div>
@@ -148,7 +248,23 @@ const PropertyResult = () => {
                 <div className="details-item">
                   <span className="detail-key">Post Code</span>
                   <span className="detail-value">{property.post_code}</span>
+                </div> */}
+
+
+                <div className="details-item">
+                  <span className="detail-key" style={{ fontSize: '22px' }}>Low Density Property </span>
                 </div>
+                <div className="details-item">
+                  <span className="detail-key" style={{ fontSize: '16px', color: 'rgb(134, 134, 134)' }}>This means more greenery and less noise pollution.</span>
+                </div>
+                <div className="details-item">
+                  <span className="detail-key" style={{ fontSize: '22px' }}>{property.area} m² living area</span>
+                </div>
+                <div className="details-item">
+                  <span className="detail-key" style={{ fontSize: '16px', color: 'rgb(134, 134, 134)' }}> <lighter>Comfortable home_size with plenty of room for family to enjoy cozy afternoons.</lighter></span>
+                </div>
+
+
               </>
             ) : "More Details Here..."}
           </div>
@@ -164,9 +280,9 @@ const PropertyResult = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>$980K</td>
-                  <td className="special-price">$1.14M</td>
-                  <td>$1.3M</td>
+                  <td>{lowValue}</td>
+                  <td className="special-price">{midValue}</td>
+                  <td>{highValue}</td>
                 </tr>
               </tbody>
             </table>
@@ -180,29 +296,21 @@ const PropertyResult = () => {
 
         <GoogleMap
           key="myMap"
-
           mapContainerStyle={mapContainerStyle}
           zoom={14}
           center={center}
         >
-
-
           {console.log("Before Marker")}
           <Marker position={center} zIndex={2000} />
 
-
-
-          { //使用谷歌地图的地点标记图标。
+          {/* //使用谷歌地图的地点标记图标。
             <Marker
               position={center}
               icon={{
                 url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", // 使用Google提供的红色标记图标
                 scaledSize: new window.google.maps.Size(80, 80) // 调整图标的大小
               }}
-            />}
-
-          {console.log("a Marker")}
-
+            /> */}
         </GoogleMap>
 
         <div className="map-button">
