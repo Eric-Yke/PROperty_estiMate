@@ -362,11 +362,13 @@ body {
   overflow: hidden;
   /* 这个很重要，确保内部的元素不会超出边界 */
   margin: 55px auto;
-  width: 65%;
+  width: 64%;
+  height: 400px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: Arial, sans-serif;
   position: relative;
   /* 为了在这个div内部定位按钮 */
+  border-radius: 25px;
 }
 
 .map-button {

@@ -16,9 +16,6 @@ import {
 
 
 //设置单词首字母大写的function：
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 function titleCase(str) {
   return str.toLowerCase().split(' ').map(function (word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -81,7 +78,7 @@ const PropertyResult = () => {
 
 
   // ---------  设置地图  ---------
-  const mapContainerStyle = { width: "100%", height: "400px" };
+  const mapContainerStyle = { width: "100%", height: "100%" };
   const defaultCenter = { lat: -34.397, lng: 150.644 }; // 可以设置一个默认的中心点
 
   const [center, setCenter] = useState(defaultCenter);
