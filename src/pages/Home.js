@@ -1,20 +1,18 @@
 import React from "react";
-import NavBar from '../components/NavBar/NavBar';
-import Search from '../components/Search/Search';
-import InfoSection from '../components/Content/Content';
-import Footer from '../components/Footer/Footer';
+import NavBar from "../components/NavBar/NavBar";
+import Search from "../components/Search/Search";
+import HomepageLineChart from "../components/HomepageLineChart/HomepageLineChart";
+import HomepageInfoTable from "../components/HomepageInfoTable/HomepageInfoTable";
+import Footer from "../components/Footer/Footer";
 
-
-
-const Home = () => {
+export default function Home() {
   return (
     <>
       <NavBar />
       <Search />
-      <InfoSection />
+      <HomepageLineChart />
+      <HomepageInfoTable />
       <Footer />
     </>
   );
-};
-
-export default Home;
+}

@@ -1,7 +1,7 @@
 // Content.js
 
-import React from 'react';
-import './Content.css';
+import React from "react";
+import "./Content.css";
 
 function Content() {
   return (
@@ -9,7 +9,6 @@ function Content() {
       <div className="transparent-box">
         {/* more info here */}
         <h3>Browse by Category</h3>
-
       </div>
     </div>
   );
