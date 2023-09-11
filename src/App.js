@@ -1,5 +1,5 @@
 //Appp.js的路径：/Users/cei/newFolder/PROperty_estiMate/src/App.js
-
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import PropertyList from "./pages/PropertyList";

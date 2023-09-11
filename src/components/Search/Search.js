@@ -10,7 +10,7 @@ export default function Search() {
   const [properties, setProperties] = useState([]);
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [searchType, setSearchType] = useState("address");
-  const [showFilterModal, setShowFilterModal] = useState(false); // Add showFilterModal state
+  const [showFilterModal, setShowFilterModal] = useState(false);
 
   const [filterParams, setFilterParams] = useState({
     min_price: "",
@@ -18,7 +18,6 @@ export default function Search() {
     min_area: "",
     max_area: "",
     post_code: "",
-    zoning: null,
     min_transactions: "",
     max_transactions: "",
   });
@@ -105,15 +104,15 @@ export default function Search() {
     setShowFilterModal(false);
   };
 
-  const handleFilterSearch = () => {
-    setShowFilterModal(false);
-    const queryString = new URLSearchParams(filterParams).toString();
-    setTimeout(() => {
-      navigate(`/propertyList?${queryString}`);
-    }, 0);
-  };
+  // filter null values
+  const filteredParams = Object.keys(filterParams).reduce((params, key) => {
+    if (filterParams[key].trim() !== "") {
+      params[key] = filterParams[key].trim();
+    }
+    return params;
+  }, {});
 
-  const url = `/propertyList/${handleFilterSearch}`;
+  const filterQueryString = new URLSearchParams(filteredParams).toString();
 
   const handleByAddressClick = () => {
     setSearchType("address");
@@ -269,11 +268,9 @@ export default function Search() {
                   }
                 />
               </label>
-              <Link to={url}>
-                <button id="filter_search_button" onClick={handleFilterSearch}>
-                  Search
-                </button>
-              </Link>
+              <button id="filter_search_button">
+                <Link to={`propertyList?${filterQueryString}`}>Search</Link>
+              </button>
 
               <button id="filter_close_button" onClick={handleCloseFilterModal}>
                 Close
