@@ -53,7 +53,7 @@ export default function HomepageInfoTable() {
 
   useEffect(() => {
     const params = {
-      year: 2016,
+      year: 2017,
       attribute_index: 13,
       order: "DESC",
     };

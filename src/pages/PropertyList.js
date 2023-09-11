@@ -104,7 +104,6 @@ export default function PropertyList() {
   }
 
   const finalUrl = `${baseUrl}?${queryParams.toString()}`;
-  console.log(finalUrl);
 
   const [list, setList] = useState([]);
 
@@ -129,6 +128,13 @@ export default function PropertyList() {
           params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
         }
         columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 30,
+            },
+          },
+        }}
       />
     </Box>
   );
