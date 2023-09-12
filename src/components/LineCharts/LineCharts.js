@@ -76,7 +76,6 @@ const LineCharts = ({ width, height, data }) => {
       <XAxis dataKey="year" tickLine={false} tick={{ fontSize: 16 }} tickMargin={15} />
       <YAxis domain={[minY, maxY]} axisLine={false} tickLine={false} tick={{ fontSize: 14 }} />
       <Tooltip />
-      <ReferenceLine x="2023" stroke="black" />
 
       <Area type="monotone" dataKey="history" stroke="#8884d8" fill="url(#colorUv)" data={data.slice(0, 5)} />
 
@@ -93,6 +92,7 @@ const LineCharts = ({ width, height, data }) => {
           <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
         </linearGradient>
       </defs>
+      <ReferenceLine x="2023" stroke="black" />
 
     </LineChart>
   );

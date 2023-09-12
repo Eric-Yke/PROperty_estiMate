@@ -12,8 +12,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/propertyList" element={<PropertyList />} />
-        <Route path="/propertyResult" element={<PropertyResult />} />
-        <Route path="/login" element={<Login />} /> {/* // 添加路由到 /login */}
+        {/* <Route path="/propertyResult" element={<PropertyResult />} /> */}
+        <Route path="/propertyResult/:postCode/:propertyLocality/:houseNumberAndStreet" element={<PropertyResult />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

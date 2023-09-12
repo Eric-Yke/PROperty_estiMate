@@ -85,14 +85,23 @@ export default function Search() {
     setInput(e.target.value);
   };
 
+  // const handleSearch = () => {
+  //   if (selectedProperty) {
+  //     navigate("/propertyResult", { state: { property: selectedProperty } });
+  //   } else {
+  //     console.log(
+  //       "Please select a property from the list or no property found.",
+  //       selectedProperty
+  //     );
+  //   }
+  // };
   const handleSearch = () => {
     if (selectedProperty) {
-      navigate("/propertyResult", { state: { property: selectedProperty } });
+      const { post_code, property_locality, house_number, street_name } = selectedProperty;
+      const houseNumberAndStreet = `${house_number}-${street_name}`;
+      navigate(`/propertyResult/${post_code}/${property_locality}/${houseNumberAndStreet}`);
     } else {
-      console.log(
-        "Please select a property from the list or no property found.",
-        selectedProperty
-      );
+      console.log('Please select a property from the list or no property found.', selectedProperty);
     }
   };
 
@@ -113,6 +122,21 @@ export default function Search() {
   }, {});
 
   const filterQueryString = new URLSearchParams(filteredParams).toString();
+
+
+
+  // =============================================
+  const handleFilterSearch = () => {
+    setShowFilterModal(false);
+    const queryString = new URLSearchParams(filterParams).toString();
+    setTimeout(() => {
+      navigate(`/propertyList?${queryString}`);
+    }, 0);
+  };
+  const url = `/propertyList/${handleFilterSearch}`;
+  // =============================================
+
+
 
   const handleByAddressClick = () => {
     setSearchType("address");

@@ -20,6 +20,9 @@ const Login = () => {
     event.preventDefault();  // 阻止表单的默认提交行为
     // 这里可以加入注册验证的代码
 
+
+
+
     // 如果注册成功，切换回登录界面
     setIsLogin(true);
   };
@@ -42,6 +45,10 @@ const Login = () => {
                     <input type="text" name="username" placeholder="Username" />
                   </label>
                   <label>
+
+
+
+
                     Password:
                     <input type="password" name="password" placeholder="Password" />
                   </label>

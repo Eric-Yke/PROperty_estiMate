@@ -1,23 +1,25 @@
 /* PropertyResult.css */
 body {
-  background-color: #eaeaea;
+  background-color: #ededed;
   overflow: scroll;
 }
 
 /* 标题卡片 */
 .card-title {
   background-color: white;
-  width: 60%;
-  border-radius: 20px;
+  /* width: 60%; */
+  width: 100%;
+  /* border-radius: 20px; */
   padding: 40px;
-  margin: 20px auto 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-top: 0.5px solid #c0bebe;
+  margin: 0px 0px 0px 0px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   font-family: Arial, sans-serif;
   font-size: 2.0em;
   word-spacing: 5px;
   letter-spacing: 0.5px;
   /* 增大字体大小 */
-  color: #5f5326;
+  color: #5f4926;
   /* 改变字体颜色 */
   text-align: center;
   /* 居中文本 */
@@ -35,6 +37,102 @@ body {
   box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.2), 0 6px 20px 0 rgba(241, 113, 58, 0.19);
   font-family: Arial, sans-serif;
 }
+
+
+/* 街景缩略图卡片 */
+.card-streetView-container {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+}
+
+.card-streetView {
+  background-color: white;
+  border-radius: 20px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* 动画效果 */
+  transition: all 0.3s ease-in-out;
+  /* 可点击的手型图标 */
+  cursor: pointer;
+}
+
+.card-streetView img {
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  height: auto;
+}
+
+.card-streetView-text {
+  background-color: white;
+  padding: 10px 15px 15px 30px;
+  border-radius: 0 0 20px 20px;
+  /* 动画效果 */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* 增加左右间距的调整（根据你之前的“历史记录卡片”间距，你可以调整这个间距） */
+.card-streetView:not(:last-child) {
+  margin-right: 30px;
+  /* 这是一个假定的间距，你可以根据需要进行调整 */
+}
+
+/* 动画效果 */
+.card-streetView:hover {
+  /* 当鼠标悬停时放大*/
+  transform: scale(1.05);
+  /* 背景色变浅 */
+  background-color: #f4f4f4;
+  /* 改变阴影颜色 */
+  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.4), 0 6px 20px 0 rgba(241, 113, 58, 0.4);
+  /* 在Z轴上浮起 */
+  z-index: 1;
+}
+
+.card-streetView:hover .card-streetView-text {
+  /* 当鼠标悬停在.card-streetView上时 */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* 轻微改变背景色 */
+}
+
+/* 当前预测结果 */
+.current-prediction {
+  background-color: lightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 255, 0.2);
+}
+
+/* 推荐预测结果 */
+.recommended-prediction {
+  background-color: lightgray;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* 当前预测结果 */
+.current-prediction {
+  animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: lightblue;
+  }
+
+  50% {
+    background-color: blue;
+  }
+
+  100% {
+    background-color: lightblue;
+  }
+}
+
+
+
+
 
 /* 历史交易卡片 */
 .card-hstryTranzac {
@@ -81,6 +179,27 @@ body {
 .button:focus {
   border: none;
   outline: none;
+}
+
+/* 历史交易卡片中的圆圈标记样式 */
+.timeline-badge {
+  background-color: #f1713a;
+  /* 给背景添加颜色 */
+  border: 2px solid #fff;
+  /* 添加白色边框 */
+  border-radius: 50%;
+  /* 圆形边框 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* 添加阴影 */
+  transition: all 0.3s ease;
+  /* 动画 */
+}
+
+/* 鼠标悬停效果 */
+.timeline-badge:hover {
+  background-color: #fff;
+  border: 2px solid #f1713a;
+  box-shadow: 0 0 20px rgba(241, 113, 58, 0.5);
 }
 
 
@@ -239,7 +358,7 @@ body {
   font-size: 1.1em;
 
   /* background: #ebebeb; */
-  background-color: #9b9388;
+  background-color: #9b9388a8;
   color: white;
   /* 添加背景色和阴影 */
   /* -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
@@ -247,6 +366,9 @@ body {
 
 }
 
+.card-streetView {
+  cursor: pointer;
+}
 
 
 .timeline-title {
@@ -392,4 +514,18 @@ body {
 
 .map-button:hover {
   background-color: #004d00;
+}
+
+
+
+
+/* 空白卡片 */
+.card-blank {
+  background-color: white;
+  border-radius: 20px;
+  margin: 50px auto;
+  padding: 40px;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: Arial, sans-serif;
 }

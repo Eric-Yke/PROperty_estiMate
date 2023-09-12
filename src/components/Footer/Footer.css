@@ -26,7 +26,7 @@
 }
 
 .logo {
-  margin-right: 3rem;
+  margin-right: 2rem;
   font-size: 22px;
 }
 
@@ -47,4 +47,17 @@
 .footer a:hover .icon {
   color: #c25100;
   /* 悬停时的颜色，稍微深一点 */
+}
+
+.footer a:hover {
+  color: #c25100;
+  /* 悬停时的颜色 */
+}
+
+.logo::after {
+  content: "|";
+  /* 添加分隔符 */
+  margin-left: 50px;
+  /* 调整左边距 */
+  color: #ffffff;
 }
