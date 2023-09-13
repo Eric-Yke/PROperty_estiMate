@@ -17,12 +17,12 @@ export default function HomepageLineChart() {
       range_years: 8,
       // postcodes: formattedList,
       postcodes:
-        "2500,2145,2170,2148,2760,2153,2250,2560,2077,2160,2200,2010,2750,2144,2155,2142,2076,2031,2207,2095,2026,2166,2147,2141,2154,2220,2204,2176,2030,2021,2075,2074,2151,2065,2022,2088,2135,2230,2209,2093,2232,2036,2567,2087,2161,2259,2229,2210,2020,2114,2027",
+        "2500,2145,2170,2148,2760,2153,2250",
     };
 
     fetch(
       "https://www.huanself.top/info/AveragePrice?" +
-        new URLSearchParams(params)
+      new URLSearchParams(params)
     )
       .then((response) => response.json())
       .then((data) => {

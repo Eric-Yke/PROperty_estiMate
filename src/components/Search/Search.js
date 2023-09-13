@@ -124,7 +124,6 @@ export default function Search() {
   const filterQueryString = new URLSearchParams(filteredParams).toString();
 
 
-
   // =============================================
   const handleFilterSearch = () => {
     setShowFilterModal(false);
@@ -135,7 +134,6 @@ export default function Search() {
   };
   const url = `/propertyList/${handleFilterSearch}`;
   // =============================================
-
 
 
   const handleByAddressClick = () => {

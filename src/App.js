@@ -15,6 +15,7 @@ function App() {
         {/* <Route path="/propertyResult" element={<PropertyResult />} /> */}
         <Route path="/propertyResult/:postCode/:propertyLocality/:houseNumberAndStreet" element={<PropertyResult />} />
         <Route path="/login" element={<Login />} />
+
       </Routes>
     </Router>
   );

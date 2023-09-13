@@ -1,9 +1,9 @@
 #line_chart {
   border-radius: 10px;
   background-color: #f0f0f0;
-  padding: 20px;
-  max-width: 2000px;
-  margin: 100px auto;
+  padding: 2%;
+  max-width: 100%;
+  margin: 10% auto;
   position: relative;
   z-index: 0;
 }
@@ -13,7 +13,8 @@
 }
 
 #container {
+  text-align: center;
   height: 750px;
-  width: 2000px;
+  width: 90%;
   margin: 0 auto;
 }

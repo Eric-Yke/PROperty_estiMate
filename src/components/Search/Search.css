@@ -51,7 +51,7 @@
   z-index: 2;
 }
 
-.search > * {
+.search>* {
   position: relative;
   z-index: 3;
   /* 确保所有子元素都在伪元素的上方 */
@@ -190,9 +190,11 @@ button:hover:before {
 }
 
 button:hover {
-  color: rgb(28, 181, 89);
+  /* color: rgb(28, 181, 89); */
   background: rgba(0, 0, 0, 0.02);
   border: solid 1px gainsboro;
+  /* background-color: #f1713a; */
+  color: #ce4911;
 }
 
 /*filter pop-up window*/
