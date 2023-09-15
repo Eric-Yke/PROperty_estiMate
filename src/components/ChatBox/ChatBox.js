@@ -9,8 +9,8 @@ import "./ChatBox.css"; // 引入样式文件
 const corpus = [
   { question: "你是谁", response: "我是机器人", showInUI: true },
   { question: "作者是谁", response: "作者是不明身份的程序员", showInUI: true },
-  { question: "我是谁", response: "您是用户", showInUI: false },
-  { question: "登陆", response: "登陆可以查看更多详细内容", showInUI: false },
+  { question: "How to use", response: "First enter you address...", showInUI: false },
+  { question: "Limit", response: "登陆可以查看更多详细内容", showInUI: false },
 ];
 
 const ChatBox = () => {
@@ -25,8 +25,8 @@ const ChatBox = () => {
           isUser: false,
           text: [
             "你好，我可以回答以下问题：",
-            "\0 1. 如何使用",
-            "\0 2. 限制",
+            "\0 1. How to use",
+            "\0 2. Limit",
             "\0 3. 网站详情"
           ].map((text, index) => <p key={index}>{text}</p>)
         }
