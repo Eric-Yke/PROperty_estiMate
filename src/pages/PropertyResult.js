@@ -1,4 +1,3 @@
-
 //src/pages/PropertyResult.js
 
 import React from 'react';
@@ -486,32 +485,6 @@ const PropertyResult = () => {
         </div>
       </div>
 
-
-      {/* 历史交易卡片 */}
-      <div className="card-hstryTranzac">
-        <div className="page-header">
-          <h1 id="timeline">History Transaction Timeline</h1>
-        </div>
-        <ul className="timeline">
-          {/* 使用 historyData 来动态生成历史交易列表 */}
-          {historyData && historyData.map((item, index) => (
-            <li key={item.dealing_number} className={index % 2 === 0 ? "" : "timeline-inverted"}>
-              <div className="timeline-badge">
-                {React.createElement(icons[Math.min(index, icons.length - 1)])}
-              </div>
-              <div className="timeline-panel">
-                <div className="timeline-heading">
-                  <h4 className="timeline-title">{formatDate(item.year_sold)}</h4>  {/* 这里调用了格式化日期的函数 */}
-                  <p><small className="text-muted">
-                    <big>Property was sold by <big className='enlarge_price'>${item.purchase_price}</big></big>
-                  </small></p>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-
       {/* 街景缩略图 */}
       <div className="card-streetView-container">
         {properties.map((property, index) => (
@@ -543,10 +516,30 @@ const PropertyResult = () => {
         ))}
       </div>
 
+      {/* 历史交易卡片 */}
+      <div className="page-header">
+        <h1 id="timeline">History Transaction Timeline</h1>
+      </div>
 
-
-      <div className='card-blank'>
-
+      <div className="card-hstryTranzac">
+        <ul className="timeline">
+          {/* 使用 historyData 来动态生成历史交易列表 */}
+          {historyData && historyData.map((item, index) => (
+            <li key={item.dealing_number} className={index % 2 === 0 ? "" : "timeline-inverted"}>
+              <div className="timeline-badge">
+                {React.createElement(icons[Math.min(index, icons.length - 1)])}
+              </div>
+              <div className="timeline-panel">
+                <div className="timeline-heading">
+                  <h4 className="timeline-title">{formatDate(item.year_sold)}</h4>  {/* 这里调用了格式化日期的函数 */}
+                  <p><small className="text-muted">
+                    <big>Property was sold by <big className='enlarge_price'>${item.purchase_price}</big></big>
+                  </small></p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <Footer />

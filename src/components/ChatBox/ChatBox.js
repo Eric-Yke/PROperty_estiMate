@@ -24,7 +24,7 @@ const ChatBox = () => {
         {
           isUser: false,
           text: [
-            "你好，我可以回答以下问题：",
+            "你好，I can answer以下问题：",
             "\0 1. How to use",
             "\0 2. Limit",
             "\0 3. 网站详情"

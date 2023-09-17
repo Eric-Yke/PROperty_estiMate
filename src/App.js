@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import PropertyList from "./pages/PropertyList";
 import PropertyResult from "./pages/PropertyResult";
+import Collection from './pages/collection';
 import Login from "./pages/Login"; // 引入 Login
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         {/* <Route path="/propertyResult" element={<PropertyResult />} /> */}
         <Route path="/propertyResult/:postCode/:propertyLocality/:houseNumberAndStreet" element={<PropertyResult />} />
         <Route path="/login" element={<Login />} />
-
+        <Route path="/collections" element={<Collection />} />
       </Routes>
     </Router>
   );

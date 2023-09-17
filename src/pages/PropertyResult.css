@@ -1,27 +1,30 @@
 /* PropertyResult.css */
 body {
-  background-color: #ededed;
+  background-color: #cccdcf66;
   overflow: scroll;
 }
 
 /* 标题卡片 */
 .card-title {
-  background-color: white;
+  /* background-color: white; */
   width: 60%;
   border-radius: 20px;
   padding: 40px;
   margin: 20px auto 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: Arial, sans-serif;
-  font-size: 2.0em;
+  /* box-shadow: 0 2px 4px 0 rgba(208, 206, 206, 0.2), 0 6px 20px 0 rgba(198, 198, 198, 0.19); */
+  /* font-family: Arial, sans-serif; */
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 2.5em;
   word-spacing: 5px;
   letter-spacing: 0.5px;
   /* 增大字体大小 */
-  color: #5f4926;
+  color: #000000;
   /* 改变字体颜色 */
   text-align: center;
   /* 居中文本 */
 }
+
+
 
 /* 折线图卡片 */
 .card {
@@ -42,7 +45,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 65%;
-  margin: 50px auto;
+  margin: 60px auto;
   font-family: Arial, sans-serif;
 }
 
@@ -52,7 +55,7 @@ body {
   flex: 1;
   margin: 0;
   padding: 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 1px 2px 0 rgba(221, 215, 215, 0.2), 0 6px 20px 0 rgba(137, 136, 136, 0.19);
   /* 动画效果 */
   transition: all 0.3s ease-in-out;
   /* 可点击的手型图标 */
@@ -60,15 +63,16 @@ body {
 }
 
 .card-streetView img {
-  border-radius: 20px 20px 0 0;
+  border-radius: 10px 10px 0 0;
   width: 100%;
   height: auto;
 }
 
 .card-streetView-text {
   background-color: white;
+  height: 50%;
   padding: 10px 15px 15px 30px;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 10px 10px;
   /* 动画效果 */
   transition: background-color 0.3s ease-in-out;
 }
@@ -82,65 +86,13 @@ body {
 /* 动画效果 */
 .card-streetView:hover {
   /* 当鼠标悬停时放大*/
-  transform: scale(1.05);
+  transform: scale(1.03);
   /* 背景色变浅 */
   background-color: #f4f4f4;
   /* 改变阴影颜色 */
   box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.4), 0 6px 20px 0 rgba(241, 113, 58, 0.4);
   /* 在Z轴上浮起 */
   z-index: 1;
-}
-
-.card-streetView:hover .card-streetView-text {
-  /* 当鼠标悬停在.card-streetView上时 */
-  background-color: rgba(255, 255, 255, 0.8);
-  /* 轻微改变背景色 */
-}
-
-/* 当前预测结果 */
-.current-prediction {
-  background-color: lightblue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 255, 0.2);
-}
-
-/* 推荐预测结果 */
-.recommended-prediction {
-  background-color: lightgray;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* 当前预测结果 */
-.current-prediction {
-  animation: highlight 1s ease;
-}
-
-@keyframes highlight {
-  0% {
-    background-color: lightblue;
-  }
-
-  50% {
-    background-color: blue;
-  }
-
-  100% {
-    background-color: lightblue;
-  }
-}
-
-
-
-
-
-/* 历史交易卡片 */
-.card-hstryTranzac {
-  background-color: white;
-  border-radius: 20px;
-  margin: 50px auto;
-  padding: 40px;
-  width: 60%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: Arial, sans-serif;
 }
 
 .chart-section {
@@ -177,27 +129,6 @@ body {
 .button:focus {
   border: none;
   outline: none;
-}
-
-/* 历史交易卡片中的圆圈标记样式 */
-.timeline-badge {
-  background-color: #f1713a;
-  /* 给背景添加颜色 */
-  border: 2px solid #fff;
-  /* 添加白色边框 */
-  border-radius: 50%;
-  /* 圆形边框 */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  /* 添加阴影 */
-  transition: all 0.3s ease;
-  /* 动画 */
-}
-
-/* 鼠标悬停效果 */
-.timeline-badge:hover {
-  background-color: #fff;
-  border: 2px solid #f1713a;
-  box-shadow: 0 0 20px rgba(241, 113, 58, 0.5);
 }
 
 
@@ -301,8 +232,23 @@ body {
 .page-header h1 {
   font-size: 28px;
   padding: 10px 50px 50px 50px;
-  color: #f1713a;
-  text-align: center;
+  color: #000000;
+  margin-left: 20%;
+  font-family: 'Nanum Gothic', sans-serif;
+  margin-top: 90px;
+  margin-bottom: -20px;
+  /* text-align: center; */
+}
+
+.card-hstryTranzac {
+  background-color: rgba(255, 255, 255, 0.656);
+  border: none;
+  border-radius: 20px;
+  margin: 0px auto;
+  padding: 40px;
+  width: 60%;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  font-family: Arial, sans-serif;
 }
 
 .timeline {
@@ -325,7 +271,7 @@ body {
   position: absolute;
   content: " ";
   width: 3px;
-  background-color: #eeeeee;
+  background-color: #00000092;
   left: 50%;
   margin-left: -1.5px;
 }
@@ -348,20 +294,46 @@ body {
 .timeline>li>.timeline-panel {
   width: 40%;
   float: left;
-  border: 1px solid #d4d4d4;
+  /* border: 1px solid #d4d4d4; */
+  border: 2px solid #000000;
+
   border-radius: 20px;
   padding: 30px 20px 30px 20px;
   position: relative;
 
   font-size: 1.1em;
-
   /* background: #ebebeb; */
-  background-color: #9b9388a8;
-  color: white;
+
+  /* background-color: #9b9388a8; */
+  /* color: white; */
+
+  color: #000000;
+
   /* 添加背景色和阴影 */
   /* -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
 
+}
+
+/* 历史交易卡片中的圆圈标记样式 */
+.timeline-badge {
+  background-color: #f1713a;
+  /* 给背景添加颜色 */
+  border: 2px solid #fff;
+  /* 添加白色边框 */
+  border-radius: 50%;
+  /* 圆形边框 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* 添加阴影 */
+  transition: all 0.3s ease;
+  /* 动画 */
+}
+
+/* 鼠标悬停效果 */
+.timeline-badge:hover {
+  background-color: #fff;
+  border: 2px solid #f1713a;
+  box-shadow: 0 0 20px rgba(241, 113, 58, 0.5);
 }
 
 .card-streetView {
@@ -404,7 +376,7 @@ body {
 }
 
 .timeline>li>.timeline-badge {
-  color: #fff;
+  color: #000000;
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -414,7 +386,7 @@ body {
   top: 16px;
   left: 50%;
   margin-left: -25px;
-  background-color: #999999;
+  background-color: #ffffff;
   z-index: 100;
   border-top-right-radius: 50%;
   border-top-left-radius: 50%;
@@ -512,18 +484,4 @@ body {
 
 .map-button:hover {
   background-color: #004d00;
-}
-
-
-
-
-/* 空白卡片 */
-.card-blank {
-  background-color: white;
-  border-radius: 20px;
-  margin: 50px auto;
-  padding: 40px;
-  width: 60%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: Arial, sans-serif;
 }

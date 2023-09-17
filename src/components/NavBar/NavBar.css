@@ -1,14 +1,14 @@
 .navbar {
-  height: 6.67vh;
+  height: 7.0vh;
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0 0.8rem;
 }
 
 .logo-img {
-  height: 60px;
+  height: 55px;
   object-position: center;
   object-fit: contain;
   /* 保证 logo 图片不会被拉伸或压缩 */
@@ -19,7 +19,7 @@
   align-items: center;
   /* 垂直居中对齐所有子项目 */
   /* gap: 1rem; */
-  gap: 0.5rem;
+  gap: 0rem;
 
 }
 

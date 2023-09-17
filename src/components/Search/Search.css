@@ -89,6 +89,10 @@
   height: 30%;
 }
 
+.search-inputs input {
+  font-size: 28px;
+}
+
 /* 搜索框 */
 #autocomplete {
   width: 100%;
