@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer/Footer';
 import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
 import { IoClose } from 'react-icons/io5';
+import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import './collection.css';
 
 import background from '../images/background.jpg';  // 假设图片用于测试
@@ -82,9 +83,12 @@ const Collection = () => {
   return (
     <>
       <NavBar />
+      <div className='header_title'>
+        <h1>My collected Properties</h1>
+      </div>
       <div className="collection-container">
         {currentCards.map((data) => (
-          <div className="card" key={data.id}>
+          <div className="card-colect" key={data.id}>
             <div className="viewImg_clect" style={{ backgroundImage: `url(${background})` }}>
               {/* 假设一个图片作为背景 */}
             </div>
@@ -92,10 +96,13 @@ const Collection = () => {
               {/* 房屋详情 */}
               <div className="house_detial">
                 <div className="price-icon-container">
-                  <div className="price_colect"><span className='nameOfPrice'>The current predicted price is</span> <span className='houseOfPrice'>{data.price}</span></div>
+                  <div className="price_colect">
+                    <span className='nameOfPrice'>The current predicted price is</span> 
+                    <span className='houseOfPrice'>{data.price}</span>
+                  </div>
                   <div className="iconstart_colect">
                     {/* <AiOutlineStar color="gold" size={40} /> */}
-                    <AiTwotoneStar color="gold" size={40} />
+                    <AiTwotoneStar color="#FAAB3A" size={40} />
                   </div>
                 </div>
 
@@ -144,8 +151,10 @@ const Collection = () => {
       {/* 这里是分页控制代码 */}
       <div className="show_page">
         <div className="pagelink_con">
-          <span className="page-link" onClick={handlePrevPage}>显示上一页</span>
-          <span className="page-link" onClick={handleNextPage}>显示下一页</span>
+          
+          <span className="page-link" onClick={handlePrevPage}> <IoMdArrowDropleft size={20}/>Previous</span>
+          <span className="page-link">|</span>
+          <span className="page-link" onClick={handleNextPage}>Next <IoMdArrowDropright size={20}/></span>
         </div>
         <div className='pageNum'>
         <span className="page-info">{`${currentPage}/${totalPages}`}</span>

@@ -1,19 +1,34 @@
 /* ../pages/collection.css */
 
 .collection-container {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.card {
+.header_title {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  margin-left: 22%;
+  color: #565656;
+}
+
+.card-colect {
   width: 60%;
   aspect-ratio: 4 / 3;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 20px;
+  padding-bottom: 40px;
+  /* margin: 20px auto; */
+  box-shadow: 0 4px 8px 0 rgba(111, 111, 111, 0.2), 0 6px 20px 0 rgba(120, 120, 120, 0.19);
+  font-family: Arial, sans-serif;
 }
+
 
 .viewImg_clect {
   flex: 6;
@@ -25,11 +40,15 @@
   /* 确保没有边距 */
   padding: 0;
   /* 确保没有内边距 */
+  border-radius: 20px 20px 0 0;
 }
 
 .viewDetial_clect {
   flex: 4;
-  padding: 20px;
+  padding-top: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 0px;
   font-size: 20px;
 }
 
@@ -151,7 +170,7 @@
 
 .show_page {
   width: 60%;
-  margin: 30px auto 150px auto;
+  margin: 25px auto 150px auto;
   /* 上下外边距为0，左右自动，底部外边距为100px */
   display: flex;
   justify-content: flex-end;
@@ -175,11 +194,16 @@
 .page-link {
   margin-right: 25px;
   cursor: pointer;
+  color: #1f1f1f;
 }
 
 .page-link:last-child {
   margin-right: 0;
   /* 最后一个元素右边距为0 */
+}
+
+.page-link svg {
+  vertical-align: middle;
 }
 
 .page-info {
