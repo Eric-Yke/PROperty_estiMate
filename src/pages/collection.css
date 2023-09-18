@@ -1,9 +1,6 @@
-.collection-page {
-  /* text-align: center; */
-  margin: 20px;
-}
+/* ../pages/collection.css */
 
-.card-container {
+.collection-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,29 +8,180 @@
 
 .card {
   width: 60%;
-  margin: 20px;
-  padding: 0px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.street-view-img {
-  width: 100%;
-  height: 20%;
+.viewImg_clect {
+  flex: 6;
+  background-size: cover;
+  /* 背景图片覆盖整个 div */
+  background-position: center;
+  /* 背景图片居中 */
+  margin: 0;
+  /* 确保没有边距 */
+  padding: 0;
+  /* 确保没有内边距 */
 }
 
-.card-info {
+.viewDetial_clect {
+  flex: 4;
   padding: 20px;
-  flex-grow: 1;
+  font-size: 20px;
 }
 
-.card-header {
+.house_detial {
+  margin-bottom: 20px;
+  /* 增加到 <hr /> 的距离 */
+}
+
+.price-icon-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
-.card-address {
-  margin-top: 10px;
+.price_colect {
+  margin-bottom: 60px;
+}
+
+.nameOfPrice {
+  font-size: 18px;
+  font-weight: normal;
+  font-style: italic
+}
+
+.houseOfPrice {
+  font-size: 26px;
+  font-weight: bold;
+  color: #f1713a;
+}
+
+.address {
+  clear: both;
+  margin-bottom: 65px;
+}
+
+.note-section {
+  margin-top: 15px;
+  height: 15%;
+  /* border-bottom: 1px solid #ccc; */
+}
+
+.note-section strong {
+  font-size: 20px;
+  /* 设置“Note”标题的字体大小 */
+}
+
+.add-note {
+  cursor: pointer;
+  line-height: 1.2;
+  height: 100%;
+  font-size: 14px;
+  color: #c3c3c3;
+  border: 1px dotted #ccc;
+  /* 添加边框 */
+  padding: 10px;
+  /* 添加内边距 */
+}
+
+.note-text {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  background-color: #fff;
+  padding: 5px 20px 20px 20px;
+  /* position: relative; */
+
+  /* 使用绝对定位 */
+  position: absolute;
+  /* 设置距离顶部的位置 */
+  top: 20%;
+  /* 水平居中 */
+  left: 50%;
+  /* 水平居中 */
+  transform: translate(-50%, 0);
+}
+
+.note-textarea {
+  width: 100%;
+  height: 75%;
+  margin-bottom: 10px;
+  font-size: 16px;
+
+}
+
+.submit-button {
+  width: 100%;
+  height: 10%;
+  /* border: 1px solid #ccc; */
+  background-color: #f1713a;
+  color: #fff;
+  text-align: center;
+}
+
+.close-button {
+  /* position: absolute;
+  top: 10px;
+  left: 10px; */
+  cursor: pointer;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show_page {
+  width: 60%;
+  margin: 30px auto 150px auto;
+  /* 上下外边距为0，左右自动，底部外边距为100px */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.pagelink_con {
+  width: 55%;
+  /* 占 show_page 的 60% */
+  text-align: right;
+  /* 文字靠右 */
+}
+
+.pageNum {
+  width: 40%;
+  /* 占 show_page 的 40% */
+  text-align: right;
+  /* 文字靠右 */
+}
+
+.page-link {
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.page-link:last-child {
+  margin-right: 0;
+  /* 最后一个元素右边距为0 */
+}
+
+.page-info {
+  margin-left: auto;
 }
