@@ -48,7 +48,7 @@ npm install
 
 ### 2.3 Running the Project
 
-2.3.1 Run the following command to build a production version of this application:\
+2.3.1 Run the following command to build a production version of this application:
 
 ```bash
 npm run build
@@ -70,4 +70,4 @@ serve -s build
 
 This will start an HTTP server serving the files in the build directory.
 
-2.3.4 Copied local address to clipboard and access the application in the browser according to the pop-up information
+2.3.4 Copy local address to clipboard and access the application in the browser according to the pop-up information
