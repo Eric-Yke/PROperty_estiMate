@@ -5,7 +5,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
-  position: fixed;
+  /* position: fixed; */
+  margin-top: 50px;
   bottom: 0;
   width: 100%;
   z-index: 100;
@@ -21,7 +22,7 @@
 .footer-section2 {
   display: flex;
   padding: 0 5rem;
-  gap: 2.0rem;
+  gap: 2rem;
   align-items: center;
 }
 

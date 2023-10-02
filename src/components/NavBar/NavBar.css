@@ -1,10 +1,15 @@
 .navbar {
-  height: 7.0vh;
+  height: 7vh;
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 0.8rem;
+  /* update */
+  position: fixed;
+  z-index: 40;
+  width: 100%;
+  top: 0;
 }
 
 .logo-img {
@@ -20,9 +25,7 @@
   /* 垂直居中对齐所有子项目 */
   /* gap: 1rem; */
   gap: 0rem;
-
 }
-
 
 .navbar-section .logo,
 .navbar-section .location,
@@ -44,8 +47,7 @@
   border-radius: 20px;
   background-color: transparent;
   /* 默认背景透明 */
-  transition: background-color 0.3s,
-    box-shadow 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
   /* 添加阴影过渡 */
   /* 平滑地过渡背景颜色变化 */
 }
@@ -67,7 +69,6 @@
 }
 
 .icon-my-text {
-
   text-align: center;
   text-size-adjust: 14px;
   /* 使文本居中 */

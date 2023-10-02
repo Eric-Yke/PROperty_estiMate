@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-top: 50px;
   /* z-index: 0; */
   /* 基准 z-index */
 
@@ -51,7 +52,7 @@
   z-index: 2;
 }
 
-.search>* {
+.search > * {
   position: relative;
   z-index: 3;
   /* 确保所有子元素都在伪元素的上方 */

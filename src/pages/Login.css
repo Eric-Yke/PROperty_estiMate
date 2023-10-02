@@ -51,7 +51,6 @@ input::placeholder {
   justify-content: center;
   /* background-color: #f4f7fe; */
   background-color: #ffffff;
-
 }
 
 .logo-image {
@@ -93,12 +92,11 @@ input::placeholder {
 .div2-right p {
   color: #f1713a;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
   margin-top: 20px;
-  padding-left: 80px;
+  /* padding-left: 50px; */
   font-size: 12px;
 }
-
 
 input[name="Username"]::placeholder {
   color: lightgray;

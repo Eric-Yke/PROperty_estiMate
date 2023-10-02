@@ -1,9 +1,22 @@
-#line_chart {
+/* #line_chart {
   border-radius: 10px;
   background-color: #f0f0f0;
   padding: 2%;
   max-width: 100%;
   margin: 10% auto;
+  position: relative;
+  z-index: 0;
+} */
+
+#line_chart {
+  background-color: white;
+  width: 60%;
+  border-radius: 20px;
+  padding: 40px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.2),
+    0 6px 20px 0 rgba(241, 113, 58, 0.19);
+  font-family: Arial, sans-serif;
   position: relative;
   z-index: 0;
 }

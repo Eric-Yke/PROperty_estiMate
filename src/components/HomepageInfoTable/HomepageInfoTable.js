@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SelectYear from "../SelectYear/SelectYear";
 import "./HomepageInfoTable.css";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
@@ -11,49 +12,38 @@ const columns = [
     width: 150,
   },
   {
-    field: "fullTimeRate",
-    headerName: "Full-time Rate",
+    field: "rentRate",
+    headerName: "Average Rent Rate",
     headerClassName: "regionDataTableHeader",
-    width: 350,
+    width: 250,
   },
   {
     field: "mortgagePay",
-    headerName: "Mortgage Pay",
+    headerName: "Average Mortgage Pay",
     headerClassName: "regionDataTableHeader",
-    width: 350,
-  },
-  {
-    field: "rentRate",
-    headerName: "Rent Rate",
-    headerClassName: "regionDataTableHeader",
-    width: 350,
+    width: 250,
   },
   {
     field: "weeklyIncome",
-    headerName: "Weekly Income",
+    headerName: "Average Weekly Income",
     headerClassName: "regionDataTableHeader",
-    width: 350,
+    width: 250,
   },
   {
     field: "weeklyRent",
-    headerName: "Weekly Rent",
+    headerName: "Average Weekly Rent",
     headerClassName: "regionDataTableHeader",
-    width: 350,
-  },
-  {
-    field: "year_record",
-    headerName: "Year Record",
-    headerClassName: "regionDataTableHeader",
-    width: 350,
+    width: 250,
   },
 ];
 
 export default function HomepageInfoTable() {
   const [rows, setRows] = useState([]);
+  const [selectedYear, setSelectedYear] = useState(2016);
 
   useEffect(() => {
     const params = {
-      year: 2017,
+      year: selectedYear,
       attribute_index: 13,
       order: "DESC",
     };
@@ -66,24 +56,47 @@ export default function HomepageInfoTable() {
         let id = 1;
 
         const rowsWithId = origin_rows.map((row) => {
-          const newRow = { ...row, id: id };
+          const mortgagePay =
+            typeof row.mortgagePay === "number"
+              ? `$${row.mortgagePay.toFixed(2)}`
+              : `$${parseFloat(row.mortgagePay).toFixed(2)}`;
+          const weeklyIncome =
+            typeof row.weeklyIncome === "number"
+              ? `$${row.weeklyIncome.toFixed(2)}`
+              : `$${parseFloat(row.weeklyIncome).toFixed(2)}`;
+          const weeklyRent =
+            typeof row.weeklyRent === "number"
+              ? `$${row.weeklyRent.toFixed(2)}`
+              : `$${parseFloat(row.weeklyRent).toFixed(2)}`;
+          const rentRate =
+            typeof row.rentRate === "number"
+              ? `${(row.rentRate * 100).toFixed(2)}%`
+              : `${(parseFloat(row.rentRate) * 100).toFixed(2)}%`;
+          const newRow = {
+            ...row,
+            id: id,
+            mortgagePay: mortgagePay,
+            weeklyIncome: weeklyIncome,
+            weeklyRent: weeklyRent,
+            rentRate: rentRate,
+          };
           id++;
           return newRow;
         });
 
         setRows(rowsWithId);
       });
-  }, []);
+  }, [selectedYear]);
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+  };
 
   return (
     <Box id="regionData">
       <h1 id="tableHeading">Region Data of NSW</h1>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={20}
-        disableSelectionOnClick
-      />
+      <SelectYear onChange={handleYearChange} selectedYear={selectedYear} />
+      <DataGrid rows={rows} columns={columns} />
     </Box>
   );
 }

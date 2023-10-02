@@ -5,24 +5,15 @@ import { useEffect } from "react";
 
 export default function HomepageLineChart() {
   useEffect(() => {
-    // 列出从1001-2899所有NSW的地区
-    // let numbers = [];
-    // for (let i = 1001; i <= 2899; i++) {
-    //   numbers.push(i);
-    // }
-    // let formattedList = numbers.join(",");
-
     const params = {
       base_year: 2022,
       range_years: 8,
-      // postcodes: formattedList,
-      postcodes:
-        "2500,2145,2170,2148,2760,2153,2250",
+      postcodes: "2500,2145,2170,2148,2760,2153,2250",
     };
 
     fetch(
       "https://www.huanself.top/info/AveragePrice?" +
-      new URLSearchParams(params)
+        new URLSearchParams(params)
     )
       .then((response) => response.json())
       .then((data) => {

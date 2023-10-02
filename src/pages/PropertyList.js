@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar/NavBar";
+import Footer from "../components/Footer/Footer";
 import "./PropertyList.css";
-import { useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { DataGrid, gridClasses } from "@mui/x-data-grid";
 import { alpha, styled } from "@mui/material/styles";
@@ -11,25 +13,31 @@ const columns = [
     field: "address",
     headerName: "Address",
     headerClassName: "propertyListTableHeader",
-    width: 1200,
+    width: 600,
   },
   {
     field: "area",
     headerName: "Area (m\u00B2)",
     headerClassName: "propertyListTableHeader",
-    width: 350,
+    headerAlign: "center",
+    align: "center",
+    width: 200,
   },
   {
     field: "transactions",
     headerName: "Number of transactions",
     headerClassName: "propertyListTableHeader",
-    width: 350,
+    headerAlign: "center",
+    align: "center",
+    width: 300,
   },
   {
     field: "prediction",
     headerName: "Prediction price ($)",
     headerClassName: "propertyListTableHeader",
-    width: 350,
+    headerAlign: "center",
+    align: "center",
+    width: 300,
   },
 ];
 
@@ -40,6 +48,7 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   [`& .${gridClasses.row}.odd`]: {
     fontSize: "20px",
   },
+
   [`& .${gridClasses.row}.even`]: {
     fontSize: "20px",
     backgroundColor: theme.palette.grey[300],
@@ -74,7 +83,11 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
 }));
 
 export default function PropertyList() {
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+
   const min_price = searchParams.get("min_price");
   const max_price = searchParams.get("max_price");
   const min_area = searchParams.get("min_area");
@@ -105,37 +118,75 @@ export default function PropertyList() {
 
   const finalUrl = `${baseUrl}?${queryParams.toString()}`;
 
-  const [list, setList] = useState([]);
+  const handleCellClick = (params) => {
+    if (params.field === "address") {
+      const { house_number, street_name, property_locality, post_code } =
+        params.row;
+      const formattedStreetName = street_name
+        .toLowerCase()
+        .replace(/\s+/g, "%20");
+      const formattedLocality = property_locality
+        .toLowerCase()
+        .replace(/\s+/g, "-");
+      const url = `/propertyResult/${post_code}/${formattedLocality}/${house_number}-${formattedStreetName}`;
+      navigate(url);
+    }
+  };
 
-  fetch(finalUrl)
-    .then((res) => res.json())
-    .then((response) => {
-      const new_response = response.map((item) => {
-        const address = `${item.house_number} ${item.street_name} ${item.property_locality} NSW ${item.post_code}`;
-        return { ...item, address };
-      });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(finalUrl);
+        const data = await response.json();
+        const newResponse = data.map((item) => {
+          const streetName =
+            item.street_name.charAt(0).toUpperCase() +
+            item.street_name.slice(1);
+          const propertyLocality =
+            item.property_locality.charAt(0).toUpperCase() +
+            item.property_locality.slice(1);
+          const address = `${item.house_number} ${streetName} ${propertyLocality} NSW ${item.post_code}`;
+          return { ...item, address };
+        });
+        setList(newResponse);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      setList(new_response);
-    });
+    fetchData();
+  }, [finalUrl]);
 
   return (
-    <Box id="propertyList">
-      <h1 id="tableHeading">Property List in NSW</h1>
-      <StripedDataGrid
-        rows={list}
-        getRowId={(row) => row.property_id}
-        getRowClassName={(params) =>
-          params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
-        }
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 30,
-            },
-          },
-        }}
-      />
-    </Box>
+    <>
+      <NavBar />
+      <Box id="propertyList">
+        <h1 id="tableHeading">Property List in NSW</h1>
+        {loading ? (
+          <h2 style={{ textAlign: "center" }}>Loading...</h2>
+        ) : (
+          <StripedDataGrid
+            rows={list}
+            getRowId={(row) => row.property_id}
+            getRowClassName={(params) =>
+              params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
+            }
+            columns={columns}
+            onCellClick={handleCellClick}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 30,
+                },
+              },
+            }}
+          />
+        )}
+      </Box>
+
+      <Footer />
+    </>
   );
 }
