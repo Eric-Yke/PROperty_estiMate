@@ -130,6 +130,7 @@ export default function PropertyList() {
         .replace(/\s+/g, "-");
       const url = `/propertyResult/${post_code}/${formattedLocality}/${house_number}-${formattedStreetName}`;
       navigate(url);
+      window.scrollTo(0, 0);
     }
   };
 
