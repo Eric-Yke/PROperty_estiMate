@@ -56,7 +56,7 @@ export default function SignUp() {
     fetch("https://www.huanself.top/user/register", {
       method: "POST",
       body: JSON.stringify({
-        name: data.get("name"),
+        user_name: data.get("user_name"),
         email: data.get("email"),
         password: data.get("password"),
       }),
@@ -67,11 +67,11 @@ export default function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        window.location.href = "/login";
+        alert("Register Success");
+        // window.location.href = "/login";
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert("Wrong email or password, please try again.");
       });
   };
 
@@ -119,11 +119,11 @@ export default function SignUp() {
                 margin="normal"
                 required
                 fullWidth
-                type="name"
-                id="name"
+                type="user_name"
+                id="user_name"
                 label="Username"
-                name="name"
-                autoComplete="Username"
+                name="user_name"
+                autoComplete="user_name"
                 autoFocus
               />
 

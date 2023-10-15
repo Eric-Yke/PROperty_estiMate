@@ -66,11 +66,19 @@ export default function Login() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        alert("Login Success");
-        // window.location.href = "/";
+
+        // check if the status is success
+        if (data.status === "success") {
+          localStorage.setItem("user_id", data.user_id);
+          localStorage.setItem("user_name", data.user_name);
+          window.location.href = "/";
+        } else {
+          alert("Wrong email or password, please try again.");
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
+        alert("Wrong email or password, please try again.");
       });
   };
 
