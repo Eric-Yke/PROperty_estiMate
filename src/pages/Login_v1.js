@@ -66,8 +66,8 @@ export default function Login() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        alert("Registration Success");
-        window.location.href = "/login";
+        alert("Login Success");
+        // window.location.href = "/";
       })
       .catch((error) => {
         console.error("Error:", error);

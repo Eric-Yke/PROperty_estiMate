@@ -53,7 +53,7 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    fetch("/register", {
+    fetch("https://www.huanself.top/user/register", {
       method: "POST",
       body: JSON.stringify({
         name: data.get("name"),
