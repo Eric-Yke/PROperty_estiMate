@@ -11,9 +11,10 @@ body {
   border-radius: 20px;
   padding: 40px;
   margin: 20px auto 10px;
+  margin-top: 100px;
   /* box-shadow: 0 2px 4px 0 rgba(208, 206, 206, 0.2), 0 6px 20px 0 rgba(198, 198, 198, 0.19); */
   /* font-family: Arial, sans-serif; */
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   font-size: 2.5em;
   word-spacing: 5px;
   letter-spacing: 0.5px;
@@ -24,8 +25,6 @@ body {
   /* 居中文本 */
 }
 
-
-
 /* 折线图卡片 */
 .card {
   background-color: white;
@@ -35,10 +34,10 @@ body {
   padding: 40px;
   margin: 20px auto;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.2), 0 6px 20px 0 rgba(241, 113, 58, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.2),
+    0 6px 20px 0 rgba(241, 113, 58, 0.19);
   font-family: Arial, sans-serif;
 }
-
 
 /* 街景缩略图卡片 */
 .card-streetView-container {
@@ -55,7 +54,8 @@ body {
   flex: 1;
   margin: 0;
   padding: 0;
-  box-shadow: 0 1px 2px 0 rgba(221, 215, 215, 0.2), 0 6px 20px 0 rgba(137, 136, 136, 0.19);
+  box-shadow: 0 1px 2px 0 rgba(221, 215, 215, 0.2),
+    0 6px 20px 0 rgba(137, 136, 136, 0.19);
   /* 动画效果 */
   transition: all 0.3s ease-in-out;
   /* 可点击的手型图标 */
@@ -90,7 +90,8 @@ body {
   /* 背景色变浅 */
   background-color: #f4f4f4;
   /* 改变阴影颜色 */
-  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.4), 0 6px 20px 0 rgba(241, 113, 58, 0.4);
+  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.4),
+    0 6px 20px 0 rgba(241, 113, 58, 0.4);
   /* 在Z轴上浮起 */
   z-index: 1;
 }
@@ -131,7 +132,6 @@ body {
   outline: none;
 }
 
-
 /* 折线图 */
 .chart-section {
   margin-top: 20px;
@@ -162,8 +162,7 @@ body {
   /* 分隔键和值 */
   /* 可根据需要调整间距 */
   margin-bottom: 15px;
-  transition: background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .detail-key,
@@ -188,9 +187,7 @@ body {
 .details-item:hover .detail-key,
 .details-item:hover .detail-value {
   color: #f1713a;
-
 }
-
 
 /* 底中高价格表格 */
 .details-right {
@@ -208,8 +205,7 @@ body {
 .table th {
   color: black;
   cursor: pointer;
-  transition: background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .special-price {
@@ -234,7 +230,7 @@ body {
   padding: 10px 50px 50px 50px;
   color: #000000;
   margin-left: 20%;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   margin-top: 90px;
   margin-bottom: -20px;
   /* text-align: center; */
@@ -260,7 +256,8 @@ body {
 
 .timeline-panel:hover {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.2), 0 6px 20px 0 rgba(241, 113, 58, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(241, 113, 58, 0.2),
+    0 6px 20px 0 rgba(241, 113, 58, 0.19);
   transform: translateY(-5px);
   transition: box-shadow 0.6s ease, transform 0.4s ease;
 }
@@ -276,22 +273,22 @@ body {
   margin-left: -1.5px;
 }
 
-.timeline>li {
+.timeline > li {
   margin-bottom: 20px;
   position: relative;
 }
 
-.timeline>li:before,
-.timeline>li:after {
+.timeline > li:before,
+.timeline > li:after {
   content: " ";
   display: table;
 }
 
-.timeline>li:after {
+.timeline > li:after {
   clear: both;
 }
 
-.timeline>li>.timeline-panel {
+.timeline > li > .timeline-panel {
   width: 40%;
   float: left;
   /* border: 1px solid #d4d4d4; */
@@ -312,7 +309,6 @@ body {
   /* 添加背景色和阴影 */
   /* -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff; */
-
 }
 
 /* 历史交易卡片中的圆圈标记样式 */
@@ -340,18 +336,17 @@ body {
   cursor: pointer;
 }
 
-
 .timeline-title {
   font-size: 1.5em;
   /* 放大标题字体 */
 }
 
-.timeline-body>p {
+.timeline-body > p {
   font-size: 1.2em;
   /* 放大正文字体 */
 }
 
-.timeline>li>.timeline-panel:before {
+.timeline > li > .timeline-panel:before {
   position: absolute;
   top: 26px;
   right: -15px;
@@ -363,7 +358,7 @@ body {
   content: " ";
 }
 
-.timeline>li>.timeline-panel:after {
+.timeline > li > .timeline-panel:after {
   position: absolute;
   top: 27px;
   right: -14px;
@@ -375,7 +370,7 @@ body {
   content: " ";
 }
 
-.timeline>li>.timeline-badge {
+.timeline > li > .timeline-badge {
   color: #000000;
   width: 50px;
   height: 50px;
@@ -394,18 +389,18 @@ body {
   border-bottom-left-radius: 50%;
 }
 
-.timeline>li.timeline-inverted>.timeline-panel {
+.timeline > li.timeline-inverted > .timeline-panel {
   float: right;
 }
 
-.timeline>li.timeline-inverted>.timeline-panel:before {
+.timeline > li.timeline-inverted > .timeline-panel:before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
   right: auto;
 }
 
-.timeline>li.timeline-inverted>.timeline-panel:after {
+.timeline > li.timeline-inverted > .timeline-panel:after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;
@@ -437,15 +432,14 @@ body {
   color: inherit;
 }
 
-.timeline-body>p,
-.timeline-body>ul {
+.timeline-body > p,
+.timeline-body > ul {
   margin-bottom: 0;
 }
 
-.timeline-body>p+p {
+.timeline-body > p + p {
   margin-top: 5px;
 }
-
 
 /* 地图卡片 */
 .card-mapView {

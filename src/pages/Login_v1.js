@@ -53,7 +53,7 @@ export default function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    fetch("/register", {
+    fetch("https://www.huanself.top/user/login", {
       method: "POST",
       body: JSON.stringify({
         email: data.get("email"),
