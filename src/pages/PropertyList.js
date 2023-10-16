@@ -162,32 +162,35 @@ export default function PropertyList() {
 
   return (
     <>
-      <NavBar />
-      <Box id="propertyList">
-        <h1 id="tableHeading">Property List in NSW</h1>
-        {loading ? (
-          <h2 style={{ textAlign: "center" }}>Loading...</h2>
-        ) : (
-          <StripedDataGrid
-            rows={list}
-            getRowId={(row) => row.property_id}
-            getRowClassName={(params) =>
-              params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
-            }
-            columns={columns}
-            onCellClick={handleCellClick}
-            initialState={{
-              pagination: {
-                paginationModel: {
-                  pageSize: 30,
-                },
-              },
-            }}
-          />
-        )}
-      </Box>
-
-      <Footer />
+      <div className="page-container">
+        <NavBar />
+        <div className="content-wrap">
+          <Box id="propertyList">
+            <h1 id="tableHeading">Property List in NSW</h1>
+            {loading ? (
+              <h2 style={{ textAlign: "center" }}>Loading...</h2>
+            ) : (
+              <StripedDataGrid
+                rows={list}
+                getRowId={(row) => row.property_id}
+                getRowClassName={(params) =>
+                  params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
+                }
+                columns={columns}
+                onCellClick={handleCellClick}
+                initialState={{
+                  pagination: {
+                    paginationModel: {
+                      pageSize: 30,
+                    },
+                  },
+                }}
+              />
+            )}
+          </Box>
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }
