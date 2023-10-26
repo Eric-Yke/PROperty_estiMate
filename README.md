@@ -1,6 +1,9 @@
 # PRO estiMate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The core objective of the Pro Estimate project is to deliver a user-friendly, efficient, and humanized web application platform where users can obtain accurate real estate price forecasts. Our team will employ iterative development and prototype design methodologies to continually refine the product, ultimately delivering a Pro Estimate application that meets user needs.
+Additionally, we will place a strong emphasis on user experience, optimizing product performance through user feedback. The project is anchored in the development of a system utilizing microservices technology, with a focus on predicting future property values and rents based on quantitative data from end users. Several milestones mark the path of Pro Estimate, including the development of a microservices architecture, the collection of quantitative data, and the application of machine learning to analyze and present predictive property values to users.
+A user-friendly web interface is a cornerstone of the project, facilitating accurate data input and ease of use. We will develop a microservices architecture, utilize machine learning technology for data analysis, and provide a user-friendly web interface to assist users in accurately inputting data and easily utilizing the system.
+With the continuous development of the real estate market and the enhancement of people's investment awareness, we foresee widespread application and recognition of the ProEstimate system in the future. Our services not only meet users' needs for housing price prediction but also promote innovation and development in the entire real estate tech market. We plan to gradually enhance ProEstimate's competitiveness in the market through continuous technological research and development and market promotion. As we gain more market share, we anticipate sustainable revenue growth, creating more value for the company.
 
 # How to run this project locally
 
